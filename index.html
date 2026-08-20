@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zaylene Gascón — Desarrolladora Jr. y Automatización de Procesos</title>
+<meta name="description" content="Portafolio de Zaylene Gascón. Desarrolladora junior orientada a automatización de procesos: Python, JavaScript, SQL, n8n y Google Cloud. Proyectos en producción y académicos.">
+<meta name="author" content="Zaylene Gascón">
+<meta property="og:title" content="Zaylene Gascón — Desarrolladora Jr. y Automatización de Procesos">
+<meta property="og:description" content="Python · JavaScript · SQL · n8n · Google Cloud. Bots y flujos de automatización corriendo en producción.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --surface:#f7f8fa; --surface-2:#eef1f5; --border:#dde2e9;
+  --text:#12161c; --muted:#5b6572; --accent:#1f3b57; --accent-2:#2b7bb9;
+  --tag-bg:#eaf2f9; --tag-text:#1f3b57;
+  --shadow:0 1px 2px rgba(16,24,40,.04), 0 8px 24px rgba(16,24,40,.06);
+  --radius:14px; --maxw:1000px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0d1117; --surface:#151b23; --surface-2:#1c232c; --border:#2a323c;
+    --text:#e6edf3; --muted:#9aa5b1; --accent:#7cc0ff; --accent-2:#58a6ff;
+    --tag-bg:#1b2733; --tag-text:#9fd0ff;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:var(--bg); color:var(--text);
+  font-family:var(--font); font-size:16px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+a{color:var(--accent-2); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Nav ---------- */
+nav{
+  position:sticky; top:0; z-index:50; backdrop-filter:saturate(160%) blur(10px);
+  background:color-mix(in srgb, var(--bg) 85%, transparent);
+  border-bottom:1px solid var(--border);
+}
+nav .wrap{display:flex; align-items:center; justify-content:space-between; height:58px; gap:16px}
+nav .brand{font-weight:700; letter-spacing:-.01em; color:var(--text)}
+nav .brand:hover{text-decoration:none}
+nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0; flex-wrap:wrap}
+nav ul a{color:var(--muted); font-size:14.5px; font-weight:500}
+nav ul a:hover{color:var(--text); text-decoration:none}
+@media(max-width:640px){ nav ul{display:none} }
+
+/* ---------- Hero ---------- */
+header{padding:74px 0 54px; border-bottom:1px solid var(--border)}
+.eyebrow{
+  font-family:var(--mono); font-size:13px; color:var(--accent-2);
+  letter-spacing:.02em; margin:0 0 14px;
+}
+h1{font-size:clamp(2.1rem,5.2vw,3.15rem); line-height:1.1; letter-spacing:-.025em; margin:0 0 12px; font-weight:700}
+.role{font-size:clamp(1.05rem,2.4vw,1.28rem); color:var(--text); font-weight:600; margin:0 0 18px}
+.role span{color:var(--muted); font-weight:400}
+.lede{font-size:1.05rem; color:var(--muted); max-width:64ch; margin:0 0 28px}
+.lede strong{color:var(--text); font-weight:600}
+.cta{display:flex; flex-wrap:wrap; gap:11px}
+.btn{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 17px;
+  border-radius:9px; font-size:14.5px; font-weight:600; border:1px solid var(--border);
+  background:var(--surface); color:var(--text); transition:.16s;
+}
+.btn:hover{text-decoration:none; border-color:var(--accent-2); transform:translateY(-1px)}
+.btn.primary{background:var(--accent-2); border-color:var(--accent-2); color:#fff}
+.btn.primary:hover{opacity:.9}
+.meta{margin:26px 0 0; font-size:14px; color:var(--muted); display:flex; flex-wrap:wrap; gap:6px 20px}
+
+/* ---------- Sections ---------- */
+section{padding:58px 0; border-bottom:1px solid var(--border)}
+section:last-of-type{border-bottom:0}
+h2{
+  font-size:.83rem; text-transform:uppercase; letter-spacing:.13em;
+  color:var(--accent-2); font-weight:700; margin:0 0 8px;
+}
+.h2sub{font-size:1.6rem; font-weight:700; letter-spacing:-.02em; margin:0 0 26px; line-height:1.25}
+
+/* ---------- Stack ---------- */
+.stack{display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:14px}
+.stack-card{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:17px 19px}
+.stack-card h3{font-size:.78rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); margin:0 0 11px; font-weight:600}
+.tags{display:flex; flex-wrap:wrap; gap:7px}
+.tag{
+  font-family:var(--mono); font-size:12.5px; padding:3px 9px; border-radius:6px;
+  background:var(--tag-bg); color:var(--tag-text); white-space:nowrap;
+}
+
+/* ---------- Projects ---------- */
+.group-label{
+  display:flex; align-items:center; gap:12px; margin:0 0 20px;
+  font-size:.92rem; font-weight:600; color:var(--muted);
+}
+.group-label::after{content:""; flex:1; height:1px; background:var(--border)}
+.group-label .dot{width:8px; height:8px; border-radius:50%; background:var(--accent-2); flex:none}
+.group-label .dot.muted{background:var(--muted)}
+.grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px}
+.card{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:22px; display:flex; flex-direction:column; transition:.18s; box-shadow:var(--shadow);
+}
+.card:hover{border-color:var(--accent-2); transform:translateY(-2px)}
+.card .badge{
+  align-self:flex-start; font-family:var(--mono); font-size:11px; letter-spacing:.05em;
+  text-transform:uppercase; padding:3px 8px; border-radius:5px; margin-bottom:12px;
+  background:var(--tag-bg); color:var(--tag-text); font-weight:500;
+}
+.card .badge.live{background:#e7f6ec; color:#16794c}
+@media (prefers-color-scheme: dark){ .card .badge.live{background:#12301f; color:#5cd48f} }
+.card h3{font-size:1.11rem; font-weight:700; letter-spacing:-.015em; margin:0 0 6px; line-height:1.35}
+.card .sub{font-family:var(--mono); font-size:12.5px; color:var(--muted); margin:0 0 14px}
+.card ul{margin:0 0 16px; padding-left:18px; color:var(--muted); font-size:14.6px}
+.card ul li{margin-bottom:6px}
+.card ul li strong{color:var(--text); font-weight:600}
+.card .foot{margin-top:auto; display:flex; flex-wrap:wrap; gap:14px; align-items:center; font-size:14px}
+.card .foot .privado{color:var(--muted); font-size:13.5px}
+
+/* ---------- Formación ---------- */
+.timeline{display:grid; gap:14px}
+.ti{
+  display:grid; grid-template-columns:150px 1fr; gap:18px; align-items:center;
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:17px 19px;
+  transition:.16s;
+}
+.ti .when{font-family:var(--mono); font-size:13px; color:var(--muted); align-self:start; padding-top:2px}
+.ti h3{margin:0 0 3px; font-size:1.02rem; font-weight:650}
+.ti p{margin:0; color:var(--muted); font-size:14.5px}
+@media(max-width:620px){ .ti{grid-template-columns:1fr; gap:6px} .ti .when{align-self:auto} }
+
+/* Cursos con certificado: la fila entera abre la foto */
+.ti.tiene-cert{grid-template-columns:150px 1fr auto; cursor:zoom-in}
+.ti.tiene-cert:hover{border-color:var(--accent-2); transform:translateY(-2px)}
+.ti.tiene-cert:focus-visible{outline:2px solid var(--accent-2); outline-offset:2px}
+.ti .thumb{
+  display:none; width:96px; height:66px; object-fit:cover; object-position:top;
+  border-radius:7px; border:1px solid var(--border); background:var(--surface-2);
+}
+.ti.tiene-cert .thumb{display:block}
+.ti .ver{display:none; font-size:12.5px; color:var(--accent-2); font-weight:600; margin-top:5px}
+.ti.tiene-cert .ver{display:block}
+@media(max-width:620px){
+  .ti.tiene-cert{grid-template-columns:1fr}
+  .ti .thumb{width:100%; height:120px; margin-top:10px}
+}
+
+/* ---------- Contacto ---------- */
+.contact{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:14px; margin-top:6px}
+.contact a{
+  background:var(--surface); border:1px solid var(--border); border-radius:var(--radius);
+  padding:17px 19px; display:block; transition:.16s;
+}
+.contact a:hover{border-color:var(--accent-2); text-decoration:none; transform:translateY(-2px)}
+.contact .k{font-size:.75rem; text-transform:uppercase; letter-spacing:.09em; color:var(--muted); font-weight:600}
+.contact .v{color:var(--text); font-weight:600; word-break:break-word; font-size:15px}
+
+/* ---------- Certificado ampliado ---------- */
+#lightbox{
+  position:fixed; inset:0; z-index:100; background:rgba(0,0,0,.86);
+  display:none; align-items:center; justify-content:center; padding:26px; cursor:zoom-out;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:100%; max-height:100%; border-radius:8px; box-shadow:0 12px 48px rgba(0,0,0,.5)}
+#lightbox .cerrar{
+  position:absolute; top:16px; right:22px; color:#fff; font-size:30px;
+  background:none; border:0; cursor:pointer; line-height:1; opacity:.75;
+}
+#lightbox .cerrar:hover{opacity:1}
+
+footer{padding:34px 0 46px; color:var(--muted); font-size:13.5px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">Zaylene Gascón</a>
+    <ul>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="#proyectos">Proyectos</a></li>
+      <li><a href="#formacion">Formación</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="wrap">
+    <p class="eyebrow">// Buenos Aires, Argentina</p>
+    <h1>Zaylene Gascón</h1>
+    <p class="role">Desarrolladora Jr. <span>— Automatización de procesos</span></p>
+    <p class="lede">
+      Estudiante de la <strong>Tecnicatura Universitaria en Programación (UTN)</strong>.
+      Escribo bots en Python y flujos de automatización que hoy corren
+      <strong>en producción</strong>: procesan las listas de precios de más de 10 proveedores
+      y los cierres de caja de 10 locales, todos los días, sin intervención manual.
+      Vengo de cuatro años en administración y control de gestión, así que entiendo
+      el proceso antes de automatizarlo.
+    </p>
+    <div class="cta">
+      <a class="btn primary" href="#proyectos">Ver proyectos</a>
+      <a class="btn" href="https://github.com/Zay016" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/zaylene-gascon-05b9a4194" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn" href="CV-Zaylene-Gascon.pdf" download>Descargar CV</a>
+    </div>
+    <p class="meta">
+      <span>Villa Crespo, CABA</span>
+      <span>gzaylene@gmail.com</span>
+      <span>+54 9 11 5488-0092</span>
+    </p>
+  </div>
+</header>
+
+<section id="stack">
+  <div class="wrap">
+    <h2>Stack</h2>
+    <p class="h2sub">Con lo que trabajo</p>
+    <div class="stack">
+      <div class="stack-card">
+        <h3>Lenguajes</h3>
+        <div class="tags">
+          <span class="tag">Python</span><span class="tag">JavaScript</span>
+          <span class="tag">SQL</span><span class="tag">HTML5</span>
+          <span class="tag">CSS3</span><span class="tag">SCSS</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Automatización e integración</h3>
+        <div class="tags">
+          <span class="tag">n8n</span><span class="tag">APIs REST</span>
+          <span class="tag">Webhooks</span><span class="tag">JSON</span>
+          <span class="tag">IMAP / SMTP</span><span class="tag">Google Apps Script</span>
+          <span class="tag">Telegram Bot API</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Datos</h3>
+        <div class="tags">
+          <span class="tag">MySQL</span><span class="tag">pandas</span>
+          <span class="tag">openpyxl</span><span class="tag">CSV / Excel</span>
+          <span class="tag">matplotlib</span><span class="tag">ETL</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Scraping y web</h3>
+        <div class="tags">
+          <span class="tag">Playwright</span><span class="tag">requests</span>
+          <span class="tag">BeautifulSoup</span><span class="tag">parsing HTML</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Cloud e infraestructura</h3>
+        <div class="tags">
+          <span class="tag">Google Cloud</span><span class="tag">Compute Engine</span>
+          <span class="tag">Linux</span><span class="tag">SSH</span>
+          <span class="tag">systemd</span><span class="tag">venv</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <h3>Práctica de trabajo</h3>
+        <div class="tags">
+          <span class="tag">Git</span><span class="tag">GitHub</span>
+          <span class="tag">Jira</span><span class="tag">pytest</span>
+          <span class="tag">BPMN 2.0</span><span class="tag">Scrum</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos">
+  <div class="wrap">
+    <h2>Proyectos</h2>
+    <p class="h2sub">Lo que construí</p>
+
+    <p class="group-label"><span class="dot"></span> En producción — usados a diario en una empresa gastronómica</p>
+    <div class="grid" style="margin-bottom:38px">
+
+      <article class="card">
+        <span class="badge live">● En producción</span>
+        <h3>Pipeline de listas de precios con IA</h3>
+        <p class="sub">n8n · JavaScript · Gemini · OpenAI · Mistral OCR</p>
+        <ul>
+          <li>Flujo de <strong>más de 25 nodos</strong> que recibe listas de precios por webhook en Excel, PDF o imagen y devuelve un JSON normalizado de productos, unidades y precios.</li>
+          <li><strong>13 nodos Code</strong> en JavaScript con parsers dedicados por proveedor, normalización de unidades y corrección del formato numérico argentino (punto de miles / coma decimal).</li>
+          <li>Cadena de respaldo entre modelos —<strong> Mistral OCR → Gemini → OpenAI</strong>— con un validador que descarta extracciones incompletas antes de cargarlas.</li>
+          <li>Reemplaza la carga manual de las listas de <strong>más de 10 proveedores</strong>.</li>
+        </ul>
+        <div class="foot"><span class="privado">Flujo interno</span></div>
+      </article>
+
+      <article class="card">
+        <span class="badge live">● En producción</span>
+        <h3>Registro automático de ventas por correo</h3>
+        <p class="sub">n8n · JavaScript · Gemini · MySQL · Google Sheets</p>
+        <ul>
+          <li>Lee la casilla de ventas por <strong>IMAP</strong>, interpreta el correo de cierre de caja con un modelo de lenguaje y extrae local, monto y fecha.</li>
+          <li>Capa de normalización propia en JS: montos en formato argentino, fechas y zona horaria con Luxon y <strong>canonización de 10 nombres de locales</strong> por reglas, para no depender de que el modelo acierte.</li>
+          <li>Persistencia dual: <strong>INSERT en MySQL</strong> para el histórico y carga en Google Sheets para la consulta diaria del equipo.</li>
+          <li>Elimina la carga manual de <strong>10 cierres de caja por día</strong>.</li>
+        </ul>
+        <div class="foot"><span class="privado">Flujo interno</span></div>
+      </article>
+
+      <article class="card">
+        <span class="badge live">● En producción</span>
+        <h3>Bots de scraping de precios en la nube</h3>
+        <p class="sub">Python · Playwright · pandas · Google Cloud · systemd</p>
+        <ul>
+          <li>Dos bots que recorren catálogos web de proveedores (<strong>WooCommerce y Tiendanube</strong>), consolidan todo con pandas y openpyxl y envían el Excel por correo automáticamente.</li>
+          <li>Desplegados en una <strong>VM de Google Cloud</strong>: entornos virtuales aislados, credenciales en <code>.env</code> con permisos restringidos y ejecución diaria con <strong>systemd timers</strong>.</li>
+          <li>Migré uno de Playwright al <strong>consumo directo de la API</strong> del sitio: menos dependencias y menor tiempo de ejecución.</li>
+          <li>Despliegue automatizado con un script de PowerShell (backup, SCP y prueba en el servidor).</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/piaf-bot" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="badge live">● En producción</span>
+        <h3>Inventario de equipos con códigos QR</h3>
+        <p class="sub">Google Apps Script · Google Sheets · Web App</p>
+        <ul>
+          <li>Web app que resuelve etiquetas QR contra un inventario de <strong>más de 1.300 equipos</strong> (notebooks, monitores y terminales) y muestra la ficha desde el celular.</li>
+          <li>Buscador que <strong>cruza tres tablas</strong>, consulta por tipo y número, y salida alternativa en <strong>JSON</strong> para integrarse con otros sistemas.</li>
+          <li>Partí de una base existente: rediseñé el ruteo por tipo de equipo y agregué versión de despliegue visible para diagnosticar publicaciones desactualizadas.</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/inventario-qr-equipos" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="badge live">● En producción</span>
+        <h3>Carga masiva contra API REST</h3>
+        <p class="sub">Python · API REST · Excel</p>
+        <ul>
+          <li>Automaticé la carga de <strong>más de 750 artículos</strong> al catálogo maestro de una aplicación interna consumiendo su API REST.</li>
+          <li><strong>Detección de duplicados</strong> por similitud de texto (distancia de edición) y normalización de nombres y unidades de medida.</li>
+          <li>Reportes en Excel separados por resultado —creados, ya existentes, a revisar— para que el área usuaria valide antes de confirmar.</li>
+        </ul>
+        <div class="foot"><span class="privado">Script interno</span></div>
+      </article>
+
+    </div>
+
+    <p class="group-label"><span class="dot muted"></span> Académicos y formación — UTN y cursos</p>
+    <div class="grid">
+
+      <article class="card">
+        <span class="badge">UTN · Organización Empresarial</span>
+        <h3>Chatbot de gestión de licencias</h3>
+        <p class="sub">Python · Telegram Bot API · pytest · BPMN 2.0</p>
+        <ul>
+          <li>Chatbot que gestiona solicitudes de licencia siguiendo un <strong>modelo BPMN 2.0</strong>, con máquina de estados como única fuente de verdad de las transiciones.</li>
+          <li>Arquitectura <strong>separada por capas</strong>: un núcleo independiente de la plataforma con dos front-ends (consola y Telegram) sobre el mismo motor.</li>
+          <li>Suite de <strong>pytest</strong> que cubre el camino feliz y 8 casos de camino infeliz; token fuera del repo vía <code>.env</code>.</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/chatbot-licencias-piaf" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="badge">UTN · Programación 1</span>
+        <h3>Gestión de datos de países</h3>
+        <p class="sub">Python · CSV · sin librerías externas</p>
+        <ul>
+          <li>Aplicación de consola <strong>modularizada en 7 archivos</strong> (datos, validaciones, búsquedas, filtros, ordenamiento, estadísticas y menú).</li>
+          <li>Búsqueda parcial y exacta, filtros por continente y por rangos, <strong>ordenamiento implementado a mano</strong> (bubble sort) y estadísticas agregadas.</li>
+          <li>Manejo de errores: filas mal formadas del CSV se ignoran sin cortar el programa y se rechazan las entradas no numéricas.</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/TP-Integrador-Paises" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="badge">UTN · Trabajo en equipo</span>
+        <h3>Análisis de ventas de una PyME</h3>
+        <p class="sub">Python · pandas · matplotlib · Git · Jira</p>
+        <ul>
+          <li>Procesa <strong>180 operaciones de venta</strong> y calcula facturación total, producto más vendido por unidades y por facturación, y ventas agrupadas por mes.</li>
+          <li>Gráfico de la evolución mensual de las ventas.</li>
+          <li>Trabajo organizado con <strong>control de versiones y tablero de Jira</strong>, rotando los roles de líder, desarrollador y QA.</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/analisis-ventas-celula" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+      <article class="card">
+        <span class="badge">Coderhouse · Desarrollo Web</span>
+        <h3>Sitio web — Veterinaria Animal's</h3>
+        <p class="sub">HTML5 · CSS3 · SCSS · diseño responsive</p>
+        <ul>
+          <li>Sitio multipágina maquetado desde cero, con <strong>SCSS</strong> organizado en parciales y variables.</li>
+          <li>Diseño <strong>responsive</strong> y estructura semántica.</li>
+        </ul>
+        <div class="foot"><a href="https://github.com/Zay016/Proyecto-Animal-s" target="_blank" rel="noopener">Ver código →</a></div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="formacion">
+  <div class="wrap">
+    <h2>Formación</h2>
+    <p class="h2sub">De dónde vengo</p>
+    <div class="timeline" id="timeline">
+      <div class="ti" data-cert="utn-programacion">
+        <div class="when">En curso</div>
+        <div>
+          <h3>Tecnicatura Universitaria en Programación</h3>
+          <p>Universidad Tecnológica Nacional (UTN) — TUPAD. Segundo cuatrimestre.</p>
+          <p class="ver">Ver constancia →</p>
+        </div>
+        <img class="thumb" alt="Constancia de alumna regular — UTN">
+      </div>
+      <div class="ti" data-cert="educacionit-n8n">
+        <div class="when">Mayo 2026</div>
+        <div>
+          <h3>Automatización y Agentes IA con n8n</h3>
+          <p>Educación IT — 18 horas. Certificado de aprobación.</p>
+          <p class="ver">Ver certificado →</p>
+        </div>
+        <img class="thumb" alt="Certificado de Automatización y Agentes IA con n8n — Educación IT">
+      </div>
+      <div class="ti" data-cert="educacionit-sql">
+        <div class="when">Junio 2025</div>
+        <div>
+          <h3>Introducción a Bases de Datos y SQL</h3>
+          <p>Educación IT — 18 horas. Certificado de aprobación.</p>
+          <p class="ver">Ver certificado →</p>
+        </div>
+        <img class="thumb" alt="Certificado de Introducción a Bases de Datos y SQL — Educación IT">
+      </div>
+      <div class="ti" data-cert="coderhouse-desarrollo-web">
+        <div class="when">Diciembre 2024</div>
+        <div>
+          <h3>Desarrollo Web</h3>
+          <p>Coderhouse — 38 horas a lo largo de 10 semanas. HTML, CSS y JavaScript.</p>
+          <p class="ver">Ver certificado →</p>
+        </div>
+        <img class="thumb" alt="Certificado de Desarrollo Web — Coderhouse">
+      </div>
+      <div class="ti">
+        <div class="when">En curso</div>
+        <div>
+          <h3>Excel Avanzado</h3>
+          <p>Udemy. Tablas dinámicas, funciones de búsqueda y análisis de datos.</p>
+        </div>
+      </div>
+      <div class="ti" data-cert="invecapi-asistente">
+        <div class="when">Título</div>
+        <div>
+          <h3>Asistente Administrativo</h3>
+          <p>INVECAPI — Caracas, Venezuela. Egresada.</p>
+          <p class="ver">Ver certificado →</p>
+        </div>
+        <img class="thumb" alt="Certificado de Asistente Administrativo — INVECAPI">
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Certificado ampliado">
+  <button class="cerrar" aria-label="Cerrar">&times;</button>
+  <img alt="">
+</div>
+
+<section id="contacto">
+  <div class="wrap">
+    <h2>Contacto</h2>
+    <p class="h2sub">Hablemos</p>
+    <div class="contact">
+      <a href="mailto:gzaylene@gmail.com">
+        <div class="k">Email</div><div class="v">gzaylene@gmail.com</div>
+      </a>
+      <a href="https://wa.me/5491154880092" target="_blank" rel="noopener">
+        <div class="k">WhatsApp</div><div class="v">+54 9 11 5488-0092</div>
+      </a>
+      <a href="https://github.com/Zay016" target="_blank" rel="noopener">
+        <div class="k">GitHub</div><div class="v">@Zay016</div>
+      </a>
+      <a href="https://www.linkedin.com/in/zaylene-gascon-05b9a4194" target="_blank" rel="noopener">
+        <div class="k">LinkedIn</div><div class="v">/in/zaylene-gascon</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    Zaylene Gascón — Buenos Aires, Argentina. Hecho con HTML y CSS, publicado en GitHub Pages.
+  </div>
+</footer>
+
+<script>
+/* Cada fila de Formacion con un certificado disponible se vuelve clickeable y
+   muestra la foto ampliada. Se prueban varias extensiones; la fila cuyo archivo
+   no existe queda como una fila normal, sin miniatura ni cursor de zoom. */
+(function () {
+  var EXT = ['jpg', 'jpeg', 'png', 'webp'];
+  var caja = document.getElementById('lightbox');
+  var grande = caja.querySelector('img');
+
+  function activar(fila, src) {
+    var thumb = fila.querySelector('.thumb');
+    thumb.src = src;
+    fila.classList.add('tiene-cert');
+    fila.setAttribute('role', 'button');
+    fila.setAttribute('tabindex', '0');
+    fila.setAttribute('aria-label', 'Ver ' + thumb.alt);
+  }
+
+  function probar(fila, i) {
+    if (i >= EXT.length) return;              // no existe en ningun formato
+    var src = 'certificados/' + fila.dataset.cert + '.' + EXT[i];
+    var prueba = new Image();
+    prueba.onload = function () { activar(fila, src); };
+    prueba.onerror = function () { probar(fila, i + 1); };
+    prueba.src = src;
+  }
+
+  document.querySelectorAll('.ti[data-cert]').forEach(function (f) { probar(f, 0); });
+
+  /* Abrir */
+  function abrir(fila) {
+    var thumb = fila.querySelector('.thumb');
+    grande.src = thumb.src;
+    grande.alt = thumb.alt;
+    caja.classList.add('open');
+  }
+  var tl = document.getElementById('timeline');
+  tl.addEventListener('click', function (e) {
+    var fila = e.target.closest('.ti.tiene-cert');
+    if (fila) abrir(fila);
+  });
+  tl.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var fila = e.target.closest('.ti.tiene-cert');
+    if (fila) { e.preventDefault(); abrir(fila); }
+  });
+
+  /* Cerrar */
+  function cerrar() { caja.classList.remove('open'); grande.src = ''; }
+  caja.addEventListener('click', cerrar);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') cerrar();
+  });
+})();
+</script>
+</body>
+</html>

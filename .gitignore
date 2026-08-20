@@ -1,0 +1,10 @@
+# Los PDF no se publican por defecto...
+*.pdf
+# ...salvo el CV que enlaza el boton "Descargar CV".
+!CV-Zaylene-Gascon.pdf
+
+# Instructivo personal, no va al repo publico
+certificados/LEEME.txt
+
+# Imagenes de trabajo
+pg*.png

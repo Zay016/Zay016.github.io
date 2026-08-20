@@ -8,3 +8,6 @@ certificados/LEEME.txt
 
 # Imagenes de trabajo
 pg*.png
+
+# Exportes intermedios del CV
+*.zip
